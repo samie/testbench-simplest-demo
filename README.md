@@ -1,6 +1,7 @@
 # TestBench Starter Kit
 
-This a simple starter kit for running automated UI tests in a Vaadin project using Test Bench. 
+This a simple starter kit for running automated UI tests in a Vaadin project using TestBench 4.
+If you are looking sample for using TestBench 5, go to https://github.com/johannesh2/testbench-starterkit
 
 ## Profiles 
 The project has two profiles related to tests: `dev` and `test`. Select profile with `-P` switch e.g. `mvn package -P test`. Each profile's configuration file is in `/profiles/$ {build.profile.id}/config.properties`.
