@@ -6,3 +6,5 @@ rebel.xml
 target
 styles.css
 styles.scss.cache
+.idea
+*.iml
