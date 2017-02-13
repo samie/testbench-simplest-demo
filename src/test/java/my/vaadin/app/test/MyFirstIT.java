@@ -12,9 +12,12 @@ import org.openqa.selenium.WebDriver;
 import com.vaadin.testbench.TestBenchTestCase;
 import com.vaadin.testbench.elements.ButtonElement;
 import com.vaadin.testbench.elements.TextFieldElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RunWith(BlockJUnit4ClassRunner.class)
 public class MyFirstIT extends TestBenchTestCase {
+	private static final Logger log = LoggerFactory.getLogger(MyFirstIT.class);
 
 	private WebDriver driver;
 
@@ -32,6 +35,10 @@ public class MyFirstIT extends TestBenchTestCase {
 
 	@After
 	public void teardown() {
-		driver.close();
+		try {
+			driver.close();
+		} catch (Exception ex) {
+			log.info("Failed to close driver", ex);
+		}
 	}
 }

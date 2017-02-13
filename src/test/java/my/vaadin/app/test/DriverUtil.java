@@ -1,13 +1,11 @@
 package my.vaadin.app.test;
 
+import com.machinepublishers.jbrowserdriver.JBrowserDriver;
+import org.openqa.selenium.WebDriver;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
 
 public class DriverUtil {
 
@@ -31,18 +29,7 @@ public class DriverUtil {
 	}
 
 	public WebDriver getPreferredDriver() {
-		try {
-			String headless = prop.getProperty("test.headless", "false");
-			if (Boolean.TRUE.equals(Boolean.valueOf(headless))) {
-				PhantomJSDriver driver = new PhantomJSDriver();
-				driver.manage().window().setSize(new Dimension(1280, 720));
-				return driver;
-			}
-		} catch (SecurityException e) {
-			e.printStackTrace();
-		}
-
-		return new FirefoxDriver();
+		return new JBrowserDriver();
 	}
 
 	public String getTestUrl() {
