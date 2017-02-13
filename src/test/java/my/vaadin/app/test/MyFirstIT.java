@@ -45,7 +45,7 @@ public class MyFirstIT extends TestBenchTestCase {
 	@After
 	public void teardown() {
 		// need to wrap driver.close() in try-catch until this bug is fixed:
-		// 
+		// https://github.com/MachinePublishers/jBrowserDriver/issues/250
 		try {
 			driver.close();
 		} catch (Exception ex) {
