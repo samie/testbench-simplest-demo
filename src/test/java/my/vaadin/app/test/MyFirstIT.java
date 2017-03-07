@@ -1,20 +1,18 @@
 package my.vaadin.app.test;
 
 import com.machinepublishers.jbrowserdriver.JBrowserDriver;
+import com.vaadin.testbench.ScreenshotOnFailureRule;
 import com.vaadin.testbench.TestBenchTestCase;
 import com.vaadin.testbench.elements.ButtonElement;
 import com.vaadin.testbench.elements.LabelElement;
 import com.vaadin.testbench.screenshot.ImageFileUtil;
-import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -25,13 +23,14 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(BlockJUnit4ClassRunner.class)
 public class MyFirstIT extends TestBenchTestCase {
-	private static final Logger log = LoggerFactory.getLogger(MyFirstIT.class);
-
-	private WebDriver driver;
+	@Rule
+	public final ScreenshotOnFailureRule rule = new ScreenshotOnFailureRule(this);
 
 	@Before
 	public void setup() {
-		setDriver(driver = new JBrowserDriver());
+//		System.setProperty("webdriver.chrome.driver", "/usr/lib/chromium-browser/chromedriver");
+//		setDriver(driver = new ChromeDriver());
+		setDriver(new JBrowserDriver());
 	}
 
 	@Test
@@ -42,6 +41,7 @@ public class MyFirstIT extends TestBenchTestCase {
         dumpScreenshot();
 	}
 
+/*
 	@After
 	public void teardown() {
 		// need to wrap driver.close() in try-catch until this bug is fixed:
@@ -52,6 +52,7 @@ public class MyFirstIT extends TestBenchTestCase {
 			log.info("Failed to close driver", ex);
 		}
 	}
+*/
 
 	private void dumpScreenshot() throws Exception {
 		BufferedImage screenshotImage = ImageIO.read(new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));

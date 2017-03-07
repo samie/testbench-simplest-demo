@@ -75,10 +75,10 @@
     <dependency>
       <groupId>com.machinepublishers</groupId>
       <artifactId>jbrowserdriver</artifactId>
-      <version>0.17.3</version>
+      <version>0.17.5</version>
       <scope>test</scope>
     </dependency>
-    <!-- Required by TestBench @todo mavi TestBench should transitively depend on this! -->
+    <!-- Required by TestBench https://github.com/vaadin/testbench/issues/872 -->
     <dependency>
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
