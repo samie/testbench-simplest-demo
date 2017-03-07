@@ -1,6 +1,6 @@
 # TestBench Starter Kit
 
-This a simple starter kit for running automated UI tests in a Vaadin 8 project using TestBench 5.arterkit
+This a simple starter kit for running automated UI tests in a Vaadin 8 project using TestBench 5.
 
 # How to run it
 
