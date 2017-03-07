@@ -1,8 +1,9 @@
 package my.vaadin.app.test;
 
-import static org.junit.Assert.assertTrue;
-
 import com.machinepublishers.jbrowserdriver.JBrowserDriver;
+import com.vaadin.testbench.TestBenchTestCase;
+import com.vaadin.testbench.elements.ButtonElement;
+import com.vaadin.testbench.elements.LabelElement;
 import com.vaadin.testbench.screenshot.ImageFileUtil;
 import org.junit.After;
 import org.junit.Before;
@@ -12,10 +13,6 @@ import org.junit.runners.BlockJUnit4ClassRunner;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-
-import com.vaadin.testbench.TestBenchTestCase;
-import com.vaadin.testbench.elements.ButtonElement;
-import com.vaadin.testbench.elements.TextFieldElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,6 +20,8 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(BlockJUnit4ClassRunner.class)
 public class MyFirstIT extends TestBenchTestCase {
@@ -38,8 +37,8 @@ public class MyFirstIT extends TestBenchTestCase {
 	@Test
 	public void addNewCustomer_formShouldBeVisible() throws Exception {
 		driver.get("http://localhost:8080");
-		$(ButtonElement.class).caption("Add new customer").first().click();
-		assertTrue($(TextFieldElement.class).caption("Email").exists());
+		$(ButtonElement.class).caption("Click Me").first().click();
+		assertEquals("Clicked!", $(LabelElement.class).id("consoleLabel").getText());
         dumpScreenshot();
 	}
 
