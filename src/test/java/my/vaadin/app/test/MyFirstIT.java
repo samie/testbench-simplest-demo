@@ -35,7 +35,7 @@ public class MyFirstIT extends TestBenchTestCase {
 	}
 
 	@Test
-	public void addNewCustomer_formShouldBeVisible() throws Exception {
+	public void clickButtonShouldChangeTheLabel() throws Exception {
 		driver.get("http://localhost:8080");
 		$(ButtonElement.class).caption("Click Me").first().click();
 		assertEquals("Clicked!", $(LabelElement.class).id("consoleLabel").getText());
