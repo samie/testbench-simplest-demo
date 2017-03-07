@@ -88,16 +88,6 @@
 
   <build>
     <plugins>
-      <!--<plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>2.7</version>
-      </plugin>-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
@@ -178,7 +168,7 @@
         <configuration>
           <scanIntervalSeconds>2</scanIntervalSeconds>
           <httpConnector>
-            <port>${test.port}</port>
+            <port>8080</port>
           </httpConnector>
         </configuration>
         <executions>
@@ -200,7 +190,7 @@
             </goals>
             <configuration>
               <stopKey>STOP</stopKey>
-              <stopPort>${jetty.stop.port}</stopPort>
+              <stopPort>8081</stopPort>
             </configuration>
           </execution>
         </executions>
@@ -213,28 +203,4 @@
       </testResource>
     </testResources>
   </build>
-
-  <profiles>
-    <profile>
-      <id>dev</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-      <properties>
-        <test.port>8080</test.port>
-        <jetty.stop.port>8081</jetty.stop.port>
-        <test.headless>false</test.headless>
-        <test.hostname>localhost</test.hostname>
-      </properties>
-    </profile>
-    <profile>
-      <id>test</id>
-      <properties>
-        <test.port>8080</test.port>
-        <jetty.stop.port>8081</jetty.stop.port>
-        <test.headless>true</test.headless>
-        <test.hostname>localhost</test.hostname>
-      </properties>
-    </profile>
-  </profiles>
 </project>

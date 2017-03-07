@@ -2,6 +2,7 @@ package my.vaadin.app.test;
 
 import static org.junit.Assert.assertTrue;
 
+import com.machinepublishers.jbrowserdriver.JBrowserDriver;
 import com.vaadin.testbench.screenshot.ImageFileUtil;
 import org.junit.After;
 import org.junit.Before;
@@ -31,7 +32,7 @@ public class MyFirstIT extends TestBenchTestCase {
 
 	@Before
 	public void setup() {
-		setDriver(driver = new DriverUtil().getPreferredDriver());
+		setDriver(driver = new JBrowserDriver());
 	}
 
 	@Test
