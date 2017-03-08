@@ -1,6 +1,9 @@
 package my.vaadin.app.test;
 
 import com.machinepublishers.jbrowserdriver.JBrowserDriver;
+import com.machinepublishers.jbrowserdriver.RequestHeaders;
+import com.machinepublishers.jbrowserdriver.Settings;
+import com.machinepublishers.jbrowserdriver.UserAgent;
 import com.vaadin.testbench.ScreenshotOnFailureRule;
 import com.vaadin.testbench.TestBenchTestCase;
 import com.vaadin.testbench.elements.ButtonElement;
@@ -28,9 +31,23 @@ public class MyFirstIT extends TestBenchTestCase {
 
 	@Before
 	public void setup() {
+		// Chrome needs ChromeDriver installed.
+		// Ubuntu users: sudo apt install chromium-chromedriver
 //		System.setProperty("webdriver.chrome.driver", "/usr/lib/chromium-browser/chromedriver");
 //		setDriver(driver = new ChromeDriver());
-		setDriver(new JBrowserDriver());
+
+		// JavaFX browser comes preinstalled with JavaFX
+		// UserAgent needs to be tuned though: https://github.com/MachinePublishers/jBrowserDriver/issues/260
+		setDriver(new JBrowserDriver(Settings.builder()
+				.requestHeaders(RequestHeaders.CHROME)
+				.userAgent(new UserAgent(
+						UserAgent.Family.WEBKIT,
+						"Google Inc.",
+						"Win32",
+						"Windows NT 6.1",
+						"5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2869.0 Safari/537.36",
+						"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2869.0 Safari/537.36"))
+				.build()));
 	}
 
 	@Test
