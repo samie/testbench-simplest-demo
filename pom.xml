@@ -4,10 +4,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>my.vaadin</groupId>
-  <artifactId>testbench-starterkit</artifactId>
+  <artifactId>testbench-simplest-demo</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>testbench-starterkit</name>
+  <name>testbench-simplest-demo</name>
 
   <prerequisites>
     <maven>3</maven>
