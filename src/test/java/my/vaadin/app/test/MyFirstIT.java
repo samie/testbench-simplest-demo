@@ -26,6 +26,9 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(BlockJUnit4ClassRunner.class)
 public class MyFirstIT extends TestBenchTestCase {
+	/**
+	 * This will also close the Selenium Driver.
+	 */
 	@Rule
 	public final ScreenshotOnFailureRule rule = new ScreenshotOnFailureRule(this);
 
@@ -57,19 +60,6 @@ public class MyFirstIT extends TestBenchTestCase {
 		assertEquals("Clicked!", $(LabelElement.class).id("consoleLabel").getText());
         dumpScreenshot();
 	}
-
-/*
-	@After
-	public void teardown() {
-		// need to wrap driver.close() in try-catch until this bug is fixed:
-		// https://github.com/MachinePublishers/jBrowserDriver/issues/250
-		try {
-			driver.close();
-		} catch (Exception ex) {
-			log.info("Failed to close driver", ex);
-		}
-	}
-*/
 
 	private void dumpScreenshot() throws Exception {
 		BufferedImage screenshotImage = ImageIO.read(new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
