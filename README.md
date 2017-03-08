@@ -3,6 +3,8 @@
 This is a simplest demo possible of running automated UI tests in a Vaadin 8 project using TestBench 5. No browser is required: the internal JavaFX browser present in every
 Java 8 is used.
 
+Please read http://mavi.logdown.com/posts/1414026-using-javafx-embedded-browser-for-testbench for more information.
+
 # How to run it
 
 Just run
