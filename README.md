@@ -1,6 +1,7 @@
-# TestBench Starter Kit
+# TestBench 5 Simplest Demo Possible
 
-This a simple starter kit for running automated UI tests in a Vaadin 8 project using TestBench 5.
+This is a simplest demo possible of running automated UI tests in a Vaadin 8 project using TestBench 5. No browser is required: the internal JavaFX browser present in every
+Java 8 is used.
 
 # How to run it
 
